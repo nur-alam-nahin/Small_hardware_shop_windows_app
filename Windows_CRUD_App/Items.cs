@@ -26,5 +26,37 @@ namespace Windows_CRUD_App
         {
 
         }
+
+        private void Items_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txt_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        
+
+        private void txt_phone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmb_category_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
