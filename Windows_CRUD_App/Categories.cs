@@ -20,18 +20,22 @@ namespace Windows_CRUD_App
             loadeData();
         }
 
+
+        //  add item
         private void btn_add_Click(object sender, EventArgs e)
         {
             string categoryName = txt_name.Text;
 
             
-            dgv_category.Refresh();
+            //dgv_category.Refresh();
 
             add_category(categoryName);
 
             loadeData();
         }
 
+
+        // add item method
         private void add_category(string name)
         {
             string query = @"insert into tbl_Category(CategoryName)values(@CategoryName)";
@@ -57,6 +61,8 @@ namespace Windows_CRUD_App
 
 
 
+        // loade item
+
         private void loadeData()
         {
             string query = "SELECT * FROM tbl_Category;";
@@ -78,6 +84,8 @@ namespace Windows_CRUD_App
 
         int key = 0;
 
+
+        // grid click
         private void dgv_category_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             //dgv_category.CurrentRow.Selected = true;
@@ -100,6 +108,8 @@ namespace Windows_CRUD_App
 
         }
 
+
+        // edit item
         private void btn_edit_Click(object sender, EventArgs e)
         {
             string name = txt_name.Text;
@@ -108,6 +118,9 @@ namespace Windows_CRUD_App
             loadeData();
         }
 
+
+
+        // edit item method
         private void edit_category(string name)
         {
             string query = @"UPDATE tbl_Category set CategoryName = @CategoryName where Id = @Id;";
@@ -136,7 +149,7 @@ namespace Windows_CRUD_App
         }
 
 
-
+        // delete item
         private void btn_delete_Click(object sender, EventArgs e)
         {
             string query = @"DELETE FROM tbl_Category WHERE id = @id;";
@@ -167,11 +180,9 @@ namespace Windows_CRUD_App
 
 
 
-        //private void delete_category(string name)
-        //{
-            
-        //}
+       
 
+        
         private void label1_Click(object sender, EventArgs e)
         {
             this.Close();

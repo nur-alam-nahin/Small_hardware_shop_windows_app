@@ -13,54 +13,44 @@ namespace Windows_CRUD_App
 {
     public partial class Items : Form
     {
-        string dbConnection = "server=.;database=hardwareShopDB;Integrated security = true;";
+        string dbConnection = "server=.;database=hardwareShopDB;integrated security = true;";
         public Items()
         {
             InitializeComponent();
-            //load_category();
-            loadDate();
+            get_category();
+            loadData();
 
 
         }
 
-        
 
-       
+
+
+        // loade category
 
         private void get_category()
         {
-            string query = "select Id, CategoryName from tbl_Category";
+            string query = "SELECT Id, CategoryName FROM tbl_Category";
+            //string query = "SELECT * FROM tbl_Category;";
             DataTable dt = new DataTable();
+
             using (SqlConnection connection = new SqlConnection(dbConnection))
             using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
             {
                 connection.Open();
                 adapter.Fill(dt);
-                if(dt.Rows.Count > 0)
-                {
-                    cmb_category.DataSource = dt;
-                    cmb_category.DisplayMember = "CategoryName";
-                    cmb_category.ValueMember = "Id";
-                    cmb_category.SelectedIndex = -1;
-                }
+                cmb_category.DataSource = dt;
+                cmb_category.DisplayMember = "CategoryName";
+                cmb_category.ValueMember = "Id";
+                cmb_category.SelectedIndex = -1;
             }
-            
-
         }
-        //private void load_category()
-        //{
-        //    DataTable dt = get_category();
-        //    cmb_category.DataSource = dt;
-        //    cmb_category.DisplayMember = "CategoryName";
-        //    cmb_category.ValueMember = "Id";
-        //    cmb_category.SelectedIndex = -1;
-
-        //}
-
         
 
-        
 
+
+
+        // add item
         private void btn_add_Click(object sender, EventArgs e)
         {
             string ItemName = txt_items.Text;
@@ -70,15 +60,15 @@ namespace Windows_CRUD_App
             string menufecture = txt_manufecture.Text;
 
             item_add(ItemName, CategoryId, price, stock, menufecture);
-            get_category();
-            loadDate();
+
+            loadData();
         }
 
 
       
 
 
-
+        // add item method
         private void item_add(string itemName,int CategoryId, string price,string stock, string menufecture)
         {
             string query = @"insert into tbl_Items(ItemName,CategoryId,Price,Stock,Menufecture)values(@ItemName,@CategoryId,@Price,@Stock,@Menufecture)";
@@ -97,6 +87,7 @@ namespace Windows_CRUD_App
                 if(res > 0)
                 {
                     MessageBox.Show("Data added Successfully");
+                    clearFields();
                 }
                 else
                 {
@@ -108,7 +99,9 @@ namespace Windows_CRUD_App
             }
         }
 
-        private void loadDate()
+
+        // load item
+        private void loadData()
         {
             string query = "SELECT * FROM tbl_Items;";
             DataTable dt = new DataTable();
@@ -127,44 +120,51 @@ namespace Windows_CRUD_App
 
 
         int key = 0;
+
+
+        // grid click
         private void dgv_ItemsInfo_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(e.RowIndex > 0)
+            if (e.RowIndex >= 0)
             {
+                key = Convert.ToInt32(dgv_ItemsInfo.Rows[e.RowIndex].Cells["Id"].Value);
                 txt_items.Text = dgv_ItemsInfo.Rows[e.RowIndex].Cells["ItemName"].Value.ToString();
-                cmb_category.Text = dgv_ItemsInfo.Rows[e.RowIndex].Cells["CategoryId"].Value.ToString();
+                cmb_category.SelectedValue = dgv_ItemsInfo.Rows[e.RowIndex].Cells["CategoryId"].Value;
                 txt_price.Text = dgv_ItemsInfo.Rows[e.RowIndex].Cells["Price"].Value.ToString();
                 txt_stock.Text = dgv_ItemsInfo.Rows[e.RowIndex].Cells["Stock"].Value.ToString();
                 txt_manufecture.Text = dgv_ItemsInfo.Rows[e.RowIndex].Cells["Menufecture"].Value.ToString();
             }
-
         }
 
 
+        // edit item
         private void btn_edit_Click(object sender, EventArgs e)
         {
             string ItemName = txt_items.Text;
-            var Category = cmb_category.Text;
+            int CategoryId = Convert.ToInt32(cmb_category.SelectedValue);
             var price = txt_price.Text;
             var stock = txt_stock.Text;
             string menufecture = txt_manufecture.Text;
 
-            item_edit(ItemName, Category, price, stock, menufecture);
+            item_edit(ItemName, CategoryId, price, stock, menufecture);
 
-            loadDate();
+            loadData();
 
             
         }
 
-        private void item_edit(string itemName, string category, string price, string stock, string menufecture)
+
+        // edit item method
+        private void item_edit(string itemName, int categoryId, string price, string stock, string menufecture)
         {
-            string query = @"update tbl_Items set ItemName = @ItemName, CategoryId = @CategoryId, Price = @Price, Stock = @Stock Menufecture = @Menufecture where Id = @Id;";
+            string query = @"update tbl_Items set ItemName = @ItemName, CategoryId = @CategoryId, Price = @Price, Stock = @Stock, Menufecture = @Menufecture where Id = @Id;";
             using (SqlConnection connection = new SqlConnection(dbConnection))
             using (SqlCommand cmd = new SqlCommand(query, connection))
             {
                 connection.Open();
+                cmd.Parameters.AddWithValue(@"Id", key);
                 cmd.Parameters.AddWithValue(@"ItemName", itemName);
-                cmd.Parameters.AddWithValue(@"CategoryId", category);
+                cmd.Parameters.AddWithValue(@"CategoryId", categoryId);
                 cmd.Parameters.AddWithValue(@"Price", price);
                 cmd.Parameters.AddWithValue(@"Stock", stock);
                 cmd.Parameters.AddWithValue(@"Menufecture", menufecture);
@@ -173,11 +173,7 @@ namespace Windows_CRUD_App
                 if(res > 0)
                 {
                     MessageBox.Show("Edit complete");
-                    txt_items.Text = "";
-                    cmb_category.Text = "";
-                    txt_price.Text = "";
-                    txt_manufecture.Text = "";
-                    key = 0;
+                    clearFields();
                 }
                 else
                 {
@@ -186,6 +182,8 @@ namespace Windows_CRUD_App
             }
         }
 
+
+        // delete item
         private void btn_delete_Click(object sender, EventArgs e)
         {
             string query = @"DELETE FROM tbl_Items WHERE id = @id;";
@@ -200,19 +198,30 @@ namespace Windows_CRUD_App
                 if (res > 0)
                 {
                     MessageBox.Show("Delete Successfully");
-                    txt_items.Text = "";
-                    cmb_category.Text = "";
-                    txt_price.Text = "";
-                    txt_manufecture.Text = "";
-                    key = 0;
+                    clearFields();
                 }
                 else
                 {
                     MessageBox.Show("Delete failed. Try again.");
                 }
             }
+
+            loadData();
         }
 
-       
+        private void label15_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void clearFields()
+        {
+            txt_items.Text = "";
+            cmb_category.Text = "";
+            txt_price.Text = "";
+            txt_stock.Text = "";
+            txt_manufecture.Text = "";
+            key = 0;
+        }
     }
 }

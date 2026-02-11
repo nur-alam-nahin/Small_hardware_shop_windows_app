@@ -142,14 +142,14 @@ namespace Windows_CRUD_App
             // 
             // cmb_category
             // 
-            this.cmb_category.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmb_category.BackColor = System.Drawing.Color.White;
+            this.cmb_category.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmb_category.FormattingEnabled = true;
-            this.cmb_category.ItemHeight = 26;
+            this.cmb_category.ItemHeight = 20;
             this.cmb_category.Location = new System.Drawing.Point(550, 146);
             this.cmb_category.Name = "cmb_category";
-            this.cmb_category.Size = new System.Drawing.Size(180, 32);
+            this.cmb_category.Size = new System.Drawing.Size(180, 28);
             this.cmb_category.TabIndex = 26;
-            this.cmb_category.SelectedIndexChanged += new System.EventHandler(this.cmb_category_SelectedIndexChanged);
             // 
             // label4
             // 
@@ -175,6 +175,7 @@ namespace Windows_CRUD_App
             // txt_price
             // 
             this.txt_price.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_price.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_price.Location = new System.Drawing.Point(851, 147);
             this.txt_price.Multiline = true;
             this.txt_price.Name = "txt_price";
@@ -204,6 +205,7 @@ namespace Windows_CRUD_App
             // txt_items
             // 
             this.txt_items.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_items.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_items.Location = new System.Drawing.Point(248, 147);
             this.txt_items.Multiline = true;
             this.txt_items.Name = "txt_items";
@@ -228,7 +230,7 @@ namespace Windows_CRUD_App
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(216, 637);
+            this.panel1.Size = new System.Drawing.Size(216, 629);
             this.panel1.TabIndex = 19;
             // 
             // pictureBox9
@@ -398,6 +400,7 @@ namespace Windows_CRUD_App
             this.label15.Size = new System.Drawing.Size(29, 29);
             this.label15.TabIndex = 65;
             this.label15.Text = "X";
+            this.label15.Click += new System.EventHandler(this.label15_Click);
             // 
             // label12
             // 
@@ -434,6 +437,7 @@ namespace Windows_CRUD_App
             // txt_stock
             // 
             this.txt_stock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_stock.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_stock.Location = new System.Drawing.Point(1131, 147);
             this.txt_stock.Multiline = true;
             this.txt_stock.Name = "txt_stock";
@@ -453,6 +457,7 @@ namespace Windows_CRUD_App
             // txt_manufecture
             // 
             this.txt_manufecture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_manufecture.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_manufecture.Location = new System.Drawing.Point(708, 235);
             this.txt_manufecture.Multiline = true;
             this.txt_manufecture.Name = "txt_manufecture";
@@ -464,7 +469,7 @@ namespace Windows_CRUD_App
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1326, 637);
+            this.ClientSize = new System.Drawing.Size(1324, 629);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.txt_manufecture);
             this.Controls.Add(this.label13);
