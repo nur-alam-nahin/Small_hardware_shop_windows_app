@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Categories));
             this.label14 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -93,10 +94,24 @@
             // 
             // dgv_category
             // 
+            this.dgv_category.AllowUserToAddRows = false;
+            this.dgv_category.AllowUserToDeleteRows = false;
             this.dgv_category.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgv_category.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_category.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
+            this.dgv_category.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_category.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgv_category.ColumnHeadersHeight = 33;
+            this.dgv_category.EnableHeadersVisualStyles = false;
             this.dgv_category.Location = new System.Drawing.Point(231, 380);
             this.dgv_category.Name = "dgv_category";
+            this.dgv_category.ReadOnly = true;
             this.dgv_category.RowTemplate.Height = 24;
             this.dgv_category.Size = new System.Drawing.Size(1081, 195);
             this.dgv_category.TabIndex = 48;
@@ -105,6 +120,7 @@
             // btn_delete
             // 
             this.btn_delete.BackColor = System.Drawing.Color.Crimson;
+            this.btn_delete.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_delete.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_delete.ForeColor = System.Drawing.Color.White;
             this.btn_delete.Location = new System.Drawing.Point(890, 296);
@@ -118,6 +134,7 @@
             // btn_add
             // 
             this.btn_add.BackColor = System.Drawing.Color.Teal;
+            this.btn_add.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_add.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_add.ForeColor = System.Drawing.Color.White;
             this.btn_add.Location = new System.Drawing.Point(743, 296);
@@ -131,6 +148,7 @@
             // btn_edit
             // 
             this.btn_edit.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btn_edit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_edit.ForeColor = System.Drawing.Color.White;
             this.btn_edit.Location = new System.Drawing.Point(599, 296);
@@ -333,6 +351,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label1.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Crimson;
             this.label1.Location = new System.Drawing.Point(1068, 11);
@@ -340,6 +359,7 @@
             this.label1.Size = new System.Drawing.Size(29, 29);
             this.label1.TabIndex = 65;
             this.label1.Text = "X";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label12
             // 

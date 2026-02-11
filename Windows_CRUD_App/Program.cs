@@ -16,7 +16,7 @@ namespace Windows_CRUD_App
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Categories());
+            Application.Run(new Items());
         }
     }
 }

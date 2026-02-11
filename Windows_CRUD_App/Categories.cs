@@ -76,13 +76,6 @@ namespace Windows_CRUD_App
 
 
 
-     
-
-
-       
-
-
-
         int key = 0;
 
         private void dgv_category_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -90,20 +83,11 @@ namespace Windows_CRUD_App
             //dgv_category.CurrentRow.Selected = true;
             //txt_name.Text = dgv_category.SelectedRows[0].Cells[1].Value.ToString();
 
-
-
-            txt_name.Text = dgv_category.Rows[e.RowIndex].Cells["CategoryName"].Value.ToString();
-            if (txt_name.Text == "")
+            if (e.RowIndex >= 0)
             {
-                key = 0;
+                txt_name.Text = dgv_category.Rows[e.RowIndex].Cells["CategoryName"].Value.ToString();
+                key = Convert.ToInt32(dgv_category.Rows[e.RowIndex].Cells["Id"].Value);
             }
-            else
-            {
-                //dgv_category.CurrentRow.Selected = true;
-                key = Convert.ToInt32(dgv_category.Rows[e.RowIndex].Cells["Id"].Value.ToString());
-            }
-
-
 
             //if (dgv_category.SelectedRows.Count > 0)
             //{
@@ -139,13 +123,14 @@ namespace Windows_CRUD_App
 
                 if (res > 0)
                 {
-                    MessageBox.Show("Category data added");
+                    MessageBox.Show("Category data edit ");
                     txt_name.Text = "";
                     key = 0;
                 }
                 else
                 {
-                    MessageBox.Show("Data sending failed. Please try again.");
+                    MessageBox.Show("Update failed. Try again.");
+
                 }
             }
         }
@@ -154,34 +139,42 @@ namespace Windows_CRUD_App
 
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            string name = txt_name.Text;
             string query = @"DELETE FROM tbl_Category WHERE id = @id;";
             using (SqlConnection connection = new SqlConnection(dbConnection))
             using (SqlCommand cmd = new SqlCommand(query, connection))
             {
                 connection.Open();
 
-                cmd.Parameters.AddWithValue(@"CategoryName", name);
+                cmd.Parameters.AddWithValue(@"Id", key);
+                //cmd.Parameters.AddWithValue(@"CategoryName", name);
 
                 int res = cmd.ExecuteNonQuery();
 
                 if (res > 0)
                 {
-                    MessageBox.Show("Category data deleted");
+                    MessageBox.Show("Delete Successfully");
                     txt_name.Text = "";
                 }
                 else
                 {
-                    MessageBox.Show("Data deleteing failed. Please try again.");
+                    MessageBox.Show("Delete failed. Try again.");
                 }
             }
+
+            loadeData();
+            
         }
 
-        
 
 
+        //private void delete_category(string name)
+        //{
+            
+        //}
 
-        
-
+        private void label1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

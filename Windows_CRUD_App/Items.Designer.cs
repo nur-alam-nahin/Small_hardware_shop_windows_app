@@ -32,17 +32,17 @@ namespace Windows_CRUD_App
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Items));
             this.label5 = new System.Windows.Forms.Label();
-            this.dgv_customerInfo = new System.Windows.Forms.DataGridView();
+            this.dgv_ItemsInfo = new System.Windows.Forms.DataGridView();
             this.btn_delete = new System.Windows.Forms.Button();
             this.btn_add = new System.Windows.Forms.Button();
             this.btn_edit = new System.Windows.Forms.Button();
             this.cmb_category = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.txt_phone = new System.Windows.Forms.TextBox();
+            this.txt_price = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txt_name = new System.Windows.Forms.TextBox();
+            this.txt_items = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.label11 = new System.Windows.Forms.Label();
@@ -63,10 +63,10 @@ namespace Windows_CRUD_App
             this.label12 = new System.Windows.Forms.Label();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txt_stock = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_customerInfo)).BeginInit();
+            this.txt_manufecture = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ItemsInfo)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.panel2.SuspendLayout();
@@ -89,17 +89,17 @@ namespace Windows_CRUD_App
             this.label5.Size = new System.Drawing.Size(83, 20);
             this.label5.TabIndex = 31;
             this.label5.Text = "Items List";
-            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
-            // dgv_customerInfo
+            // dgv_ItemsInfo
             // 
-            this.dgv_customerInfo.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.dgv_customerInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_customerInfo.Location = new System.Drawing.Point(231, 380);
-            this.dgv_customerInfo.Name = "dgv_customerInfo";
-            this.dgv_customerInfo.RowTemplate.Height = 24;
-            this.dgv_customerInfo.Size = new System.Drawing.Size(1081, 196);
-            this.dgv_customerInfo.TabIndex = 30;
+            this.dgv_ItemsInfo.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgv_ItemsInfo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgv_ItemsInfo.Location = new System.Drawing.Point(231, 380);
+            this.dgv_ItemsInfo.Name = "dgv_ItemsInfo";
+            this.dgv_ItemsInfo.RowTemplate.Height = 24;
+            this.dgv_ItemsInfo.Size = new System.Drawing.Size(1081, 196);
+            this.dgv_ItemsInfo.TabIndex = 30;
+            this.dgv_ItemsInfo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_ItemsInfo_CellContentClick);
             // 
             // btn_delete
             // 
@@ -112,6 +112,7 @@ namespace Windows_CRUD_App
             this.btn_delete.TabIndex = 29;
             this.btn_delete.Text = "Delete";
             this.btn_delete.UseVisualStyleBackColor = false;
+            this.btn_delete.Click += new System.EventHandler(this.btn_delete_Click);
             // 
             // btn_add
             // 
@@ -124,6 +125,7 @@ namespace Windows_CRUD_App
             this.btn_add.TabIndex = 28;
             this.btn_add.Text = "Add Item";
             this.btn_add.UseVisualStyleBackColor = false;
+            this.btn_add.Click += new System.EventHandler(this.btn_add_Click);
             // 
             // btn_edit
             // 
@@ -136,15 +138,13 @@ namespace Windows_CRUD_App
             this.btn_edit.TabIndex = 27;
             this.btn_edit.Text = "Edit";
             this.btn_edit.UseVisualStyleBackColor = false;
+            this.btn_edit.Click += new System.EventHandler(this.btn_edit_Click);
             // 
             // cmb_category
             // 
             this.cmb_category.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
             this.cmb_category.FormattingEnabled = true;
             this.cmb_category.ItemHeight = 26;
-            this.cmb_category.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
             this.cmb_category.Location = new System.Drawing.Point(550, 146);
             this.cmb_category.Name = "cmb_category";
             this.cmb_category.Size = new System.Drawing.Size(180, 32);
@@ -171,17 +171,15 @@ namespace Windows_CRUD_App
             this.label3.Size = new System.Drawing.Size(48, 20);
             this.label3.TabIndex = 24;
             this.label3.Text = "Price";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // txt_phone
+            // txt_price
             // 
-            this.txt_phone.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_phone.Location = new System.Drawing.Point(851, 147);
-            this.txt_phone.Multiline = true;
-            this.txt_phone.Name = "txt_phone";
-            this.txt_phone.Size = new System.Drawing.Size(193, 31);
-            this.txt_phone.TabIndex = 23;
-            this.txt_phone.TextChanged += new System.EventHandler(this.txt_phone_TextChanged);
+            this.txt_price.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_price.Location = new System.Drawing.Point(851, 147);
+            this.txt_price.Multiline = true;
+            this.txt_price.Name = "txt_price";
+            this.txt_price.Size = new System.Drawing.Size(193, 31);
+            this.txt_price.TabIndex = 23;
             // 
             // label2
             // 
@@ -203,15 +201,14 @@ namespace Windows_CRUD_App
             this.label1.TabIndex = 21;
             this.label1.Text = "Items";
             // 
-            // txt_name
+            // txt_items
             // 
-            this.txt_name.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txt_name.Location = new System.Drawing.Point(248, 147);
-            this.txt_name.Multiline = true;
-            this.txt_name.Name = "txt_name";
-            this.txt_name.Size = new System.Drawing.Size(193, 31);
-            this.txt_name.TabIndex = 20;
-            this.txt_name.TextChanged += new System.EventHandler(this.txt_name_TextChanged);
+            this.txt_items.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_items.Location = new System.Drawing.Point(248, 147);
+            this.txt_items.Multiline = true;
+            this.txt_items.Name = "txt_items";
+            this.txt_items.Size = new System.Drawing.Size(193, 31);
+            this.txt_items.TabIndex = 20;
             // 
             // panel1
             // 
@@ -434,15 +431,14 @@ namespace Windows_CRUD_App
             this.label13.TabIndex = 33;
             this.label13.Text = "Stock";
             // 
-            // textBox1
+            // txt_stock
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Location = new System.Drawing.Point(1131, 147);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(180, 31);
-            this.textBox1.TabIndex = 32;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txt_stock.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_stock.Location = new System.Drawing.Point(1131, 147);
+            this.txt_stock.Multiline = true;
+            this.txt_stock.Name = "txt_stock";
+            this.txt_stock.Size = new System.Drawing.Size(180, 31);
+            this.txt_stock.TabIndex = 32;
             // 
             // label14
             // 
@@ -454,15 +450,14 @@ namespace Windows_CRUD_App
             this.label14.TabIndex = 35;
             this.label14.Text = "Menufecturer";
             // 
-            // textBox2
+            // txt_manufecture
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(708, 235);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(180, 31);
-            this.textBox2.TabIndex = 34;
-            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.txt_manufecture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_manufecture.Location = new System.Drawing.Point(708, 235);
+            this.txt_manufecture.Multiline = true;
+            this.txt_manufecture.Name = "txt_manufecture";
+            this.txt_manufecture.Size = new System.Drawing.Size(180, 31);
+            this.txt_manufecture.TabIndex = 34;
             // 
             // Items
             // 
@@ -471,29 +466,28 @@ namespace Windows_CRUD_App
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1326, 637);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_manufecture);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.txt_stock);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.dgv_customerInfo);
+            this.Controls.Add(this.dgv_ItemsInfo);
             this.Controls.Add(this.btn_delete);
             this.Controls.Add(this.btn_add);
             this.Controls.Add(this.btn_edit);
             this.Controls.Add(this.cmb_category);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.txt_phone);
+            this.Controls.Add(this.txt_price);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.txt_name);
+            this.Controls.Add(this.txt_items);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
             this.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Items";
             this.Text = "Items";
-            this.Load += new System.EventHandler(this.Items_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dgv_customerInfo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv_ItemsInfo)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
@@ -516,17 +510,17 @@ namespace Windows_CRUD_App
         #endregion
 
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.DataGridView dgv_customerInfo;
+        private System.Windows.Forms.DataGridView dgv_ItemsInfo;
         private System.Windows.Forms.Button btn_delete;
         private System.Windows.Forms.Button btn_add;
         private System.Windows.Forms.Button btn_edit;
         private System.Windows.Forms.ComboBox cmb_category;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txt_phone;
+        private System.Windows.Forms.TextBox txt_price;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txt_name;
+        private System.Windows.Forms.TextBox txt_items;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox pictureBox9;
         private System.Windows.Forms.Label label11;
@@ -546,9 +540,9 @@ namespace Windows_CRUD_App
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.PictureBox pictureBox8;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txt_stock;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_manufecture;
         private System.Windows.Forms.Label label15;
     }
 }
