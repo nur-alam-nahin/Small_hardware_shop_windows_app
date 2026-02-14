@@ -31,7 +31,7 @@ namespace Windows_CRUD_App
         private void get_category()
         {
             string query = "SELECT Id, CategoryName FROM tbl_Category";
-            //string query = "SELECT * FROM tbl_Category;";
+            
             DataTable dt = new DataTable();
 
             using (SqlConnection connection = new SqlConnection(dbConnection))
@@ -100,23 +100,7 @@ namespace Windows_CRUD_App
         }
 
 
-        // load item
-        private void loadData()
-        {
-            string query = "SELECT * FROM tbl_Items;";
-            DataTable dt = new DataTable();
-            using (SqlConnection connection = new SqlConnection(dbConnection))
-            using (SqlDataAdapter adapter = new SqlDataAdapter(query,connection))
-            {
-                connection.Open();
-                adapter.Fill(dt);
-                if(dt.Rows.Count > 0)
-                {
-                    dgv_ItemsInfo.DataSource = dt;
-                }
-            }
-
-        }
+       
 
 
         int key = 0;
@@ -186,13 +170,22 @@ namespace Windows_CRUD_App
         // delete item
         private void btn_delete_Click(object sender, EventArgs e)
         {
-            string query = @"DELETE FROM tbl_Items WHERE id = @id;";
+
+            item_delete();
+            loadData();
+
+        }
+
+
+        private void item_delete()
+        {
+            string query = @"DELETE FROM tbl_Items WHERE Id = @Id;";
             using (SqlConnection connection = new SqlConnection(dbConnection))
             using (SqlCommand cmd = new SqlCommand(query, connection))
             {
                 connection.Open();
-                cmd.Parameters.AddWithValue(@"id", key);
-               
+                cmd.Parameters.AddWithValue(@"Id", key);
+
 
                 int res = cmd.ExecuteNonQuery();
                 if (res > 0)
@@ -205,8 +198,6 @@ namespace Windows_CRUD_App
                     MessageBox.Show("Delete failed. Try again.");
                 }
             }
-
-            loadData();
         }
 
         private void label15_Click(object sender, EventArgs e)
@@ -214,6 +205,27 @@ namespace Windows_CRUD_App
             this.Close();
         }
 
+
+
+
+
+        // load item
+        private void loadData()
+        {
+            string query = "SELECT * FROM tbl_Items;";
+            DataTable dt = new DataTable();
+            using (SqlConnection connection = new SqlConnection(dbConnection))
+            using (SqlDataAdapter adapter = new SqlDataAdapter(query, connection))
+            {
+                connection.Open();
+                adapter.Fill(dt);
+                if (dt.Rows.Count > 0)
+                {
+                    dgv_ItemsInfo.DataSource = dt;
+                }
+            }
+
+        }
         private void clearFields()
         {
             txt_items.Text = "";
@@ -222,6 +234,37 @@ namespace Windows_CRUD_App
             txt_stock.Text = "";
             txt_manufecture.Text = "";
             key = 0;
+        }
+
+
+
+
+      
+
+        private void page_items_Click_1(object sender, EventArgs e)
+        {
+            this.Show();
+        }
+
+        private void page_category_Click_1(object sender, EventArgs e)
+        {
+            Categories categories = new Categories();
+            categories.Show();
+            this.Hide();
+        }
+
+        private void page_customer_Click_1(object sender, EventArgs e)
+        {
+            MainPage mainPage = new MainPage();
+            mainPage.Show();
+            this.Hide();
+        }
+
+        private void page_billing_Click_1(object sender, EventArgs e)
+        {
+            Billing billing = new Billing();
+            billing.Show();
+            this.Hide();
         }
     }
 }

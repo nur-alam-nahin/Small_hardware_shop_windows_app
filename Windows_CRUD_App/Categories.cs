@@ -187,5 +187,37 @@ namespace Windows_CRUD_App
         {
             this.Close();
         }
+
+
+
+        
+
+        private void page_items_Click_1(object sender, EventArgs e)
+        {
+            Items items = new Items();
+            items.Show();
+            this.Hide();
+        }
+
+        private void page_category_Click_1(object sender, EventArgs e)
+        {
+            Categories categories = new Categories();
+            categories.Show();
+            this.Hide();
+        }
+
+        private void page_customer_Click_1(object sender, EventArgs e)
+        {
+            MainPage mainPage = new MainPage();
+            mainPage.Show();
+            this.Hide();
+        }
+
+        private void page_billing_Click_1(object sender, EventArgs e)
+        {
+            Billing billing = new Billing();
+            billing.Show();
+            this.Hide();
+        }
     }
 }
