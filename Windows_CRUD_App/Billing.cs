@@ -147,12 +147,28 @@ namespace Windows_CRUD_App
 
         private void btn_reset_Click(object sender, EventArgs e)
         {
-            dgv_clientBill.ClearSelection();
+            
+            reset();
         }
-        
+
         private void reset()
         {
-            string query = @"delete from ";
+            string query = @"delete from tbl_ClientBill";
+            
+            using (SqlConnection connection = new SqlConnection(dbConnection))
+            using (SqlCommand cmd = new SqlCommand(query, connection))
+            {
+                connection.Open();
+                cmd.ExecuteNonQuery();
+            }
+
+            dgv_clientBill.DataSource = null;
+            dgv_clientBill.Rows.Clear();
+            txt_items.Clear();
+            cmb_category.SelectedValue = -1;
+            txt_menufecture.Clear();
+            txt_price.Clear();
+            key = 0;
         }
 
         private void clearFields()

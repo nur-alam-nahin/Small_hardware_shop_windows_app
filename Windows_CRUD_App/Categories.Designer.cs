@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Categories));
             this.label14 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -99,14 +99,14 @@
             this.dgv_category.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgv_category.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.dgv_category.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightSeaGreen;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_category.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.LightSeaGreen;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_category.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_category.ColumnHeadersHeight = 33;
             this.dgv_category.EnableHeadersVisualStyles = false;
             this.dgv_category.Location = new System.Drawing.Point(231, 380);
@@ -215,6 +215,7 @@
             // page_billing
             // 
             this.page_billing.AutoSize = true;
+            this.page_billing.Cursor = System.Windows.Forms.Cursors.Hand;
             this.page_billing.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.page_billing.ForeColor = System.Drawing.Color.White;
             this.page_billing.Location = new System.Drawing.Point(86, 378);
@@ -227,6 +228,7 @@
             // page_customer
             // 
             this.page_customer.AutoSize = true;
+            this.page_customer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.page_customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.page_customer.ForeColor = System.Drawing.Color.White;
             this.page_customer.Location = new System.Drawing.Point(86, 316);
@@ -239,6 +241,7 @@
             // page_category
             // 
             this.page_category.AutoSize = true;
+            this.page_category.Cursor = System.Windows.Forms.Cursors.Hand;
             this.page_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.page_category.ForeColor = System.Drawing.Color.White;
             this.page_category.Location = new System.Drawing.Point(86, 248);
@@ -251,6 +254,7 @@
             // page_items
             // 
             this.page_items.AutoSize = true;
+            this.page_items.Cursor = System.Windows.Forms.Cursors.Hand;
             this.page_items.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.page_items.ForeColor = System.Drawing.Color.White;
             this.page_items.Location = new System.Drawing.Point(90, 180);

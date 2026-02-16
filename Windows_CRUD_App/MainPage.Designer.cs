@@ -88,6 +88,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
+            this.label13.Cursor = System.Windows.Forms.Cursors.Hand;
             this.label13.Font = new System.Drawing.Font("Verdana", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.Crimson;
             this.label13.Location = new System.Drawing.Point(1068, 11);
@@ -164,6 +165,7 @@
             // page_billing
             // 
             this.page_billing.AutoSize = true;
+            this.page_billing.Cursor = System.Windows.Forms.Cursors.Hand;
             this.page_billing.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.page_billing.ForeColor = System.Drawing.Color.White;
             this.page_billing.Location = new System.Drawing.Point(86, 378);
@@ -176,6 +178,7 @@
             // page_customer
             // 
             this.page_customer.AutoSize = true;
+            this.page_customer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.page_customer.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.page_customer.ForeColor = System.Drawing.Color.White;
             this.page_customer.Location = new System.Drawing.Point(86, 316);
@@ -188,6 +191,7 @@
             // page_category
             // 
             this.page_category.AutoSize = true;
+            this.page_category.Cursor = System.Windows.Forms.Cursors.Hand;
             this.page_category.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.page_category.ForeColor = System.Drawing.Color.White;
             this.page_category.Location = new System.Drawing.Point(86, 248);
@@ -200,6 +204,7 @@
             // page_items
             // 
             this.page_items.AutoSize = true;
+            this.page_items.Cursor = System.Windows.Forms.Cursors.Hand;
             this.page_items.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.page_items.ForeColor = System.Drawing.Color.White;
             this.page_items.Location = new System.Drawing.Point(90, 180);
@@ -439,6 +444,7 @@
             this.Controls.Add(this.txt_name);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel3);
+            this.Font = new System.Drawing.Font("Verdana", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MainPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

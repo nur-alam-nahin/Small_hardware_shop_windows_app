@@ -14,7 +14,7 @@ namespace Windows_CRUD_App
     public partial class Login : Form
     {
 
-        string dbConnection = "server=.;Database=customerDB; Integrated Security = true;";
+        string dbConnection = "server=.;database=hardwareShopDB;integrated security = true;";
         public Login()
         {
             InitializeComponent();
@@ -31,13 +31,13 @@ namespace Windows_CRUD_App
         private void login(string userName,string password)
         {
             //string query = @"select * from tbl_createAccount;";
-            string query = @"select UserName ,   Password from tbl_createAccount where (UserName = @UserName and   Password = @Password);";
+            string query = @"select UserName ,   UserPassword from tbl_createAccount where (UserName = @UserName and   UserPassword = @UserPassword);";
             using (SqlConnection connection = new SqlConnection(dbConnection))
             using (SqlCommand cmd = new SqlCommand(query, connection))
             {
                 connection.Open();
                 cmd.Parameters.AddWithValue(@"UserName", userName);
-                cmd.Parameters.AddWithValue(@"Password", password);
+                cmd.Parameters.AddWithValue(@"UserPassword", password);
 
                 using (SqlDataReader dr = cmd.ExecuteReader())
                 {

@@ -110,6 +110,7 @@
             this.btn_singup.TabIndex = 72;
             this.btn_singup.Text = "Sign Up";
             this.btn_singup.UseVisualStyleBackColor = true;
+            this.btn_singup.Click += new System.EventHandler(this.btn_singup_Click_1);
             // 
             // label3
             // 

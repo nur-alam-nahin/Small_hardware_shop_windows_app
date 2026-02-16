@@ -14,40 +14,52 @@ namespace Windows_CRUD_App
     public partial class Create_account : Form
     {
 
-        string dbConnection = "server=.;Database=customerDB; Integrated Security = true;";
+        string dbConnection = "server=.;database=hardwareShopDB;integrated security = true;";
         public Create_account()
         {
             InitializeComponent();
         }
 
-        private void btn_singup_Click(object sender, EventArgs e)
+        private void btn_singup_Click_1(object sender, EventArgs e)
         {
             string userName = txt_userName.Text;
             string password = txt_password.Text;
             signUp(userName, password);
         }
+        private void btn_singup_Click(object sender, EventArgs e)
+        {
+            
+        }
 
         private void signUp(string userName,string password)
         {
-            string query = @"insert into tbl_createAccount(UserName,Password)values(@UserName,@Password)";
+            string query = @"insert into tbl_createAccount(UserName,UserPassword)values(@UserName,@UserPassword)";
 
             using (SqlConnection connection = new SqlConnection(dbConnection))
             using (SqlCommand cmd = new SqlCommand(query, connection))
             {
                 connection.Open();
 
-                cmd.Parameters.AddWithValue(@"UserName", userName);
-                cmd.Parameters.AddWithValue(@"Password", password);
-
-                int res = cmd.ExecuteNonQuery();
-
-                if(res > 0)
+                if(userName == "" || password == "")
                 {
-                    MessageBox.Show("Account Created Successfully");
+
+                    MessageBox.Show("Account Creation Failed");
                 }
                 else
                 {
-                    MessageBox.Show("Account Creation Failed");
+                    cmd.Parameters.AddWithValue(@"UserName", userName);
+                    cmd.Parameters.AddWithValue(@"UserPassword", password);
+
+                    int res = cmd.ExecuteNonQuery();
+
+                    if(res > 0)
+                    {
+                        MessageBox.Show("Account Created Successfully");
+
+                        Items items = new Items();
+                        items.Show();
+                        this.Hide();
+                    }
                 }
             }
         }
@@ -66,5 +78,15 @@ namespace Windows_CRUD_App
         {
             this.Close();
         }
+
+
+
+
+        //private void btn_singup_Click_1(object sender, EventArgs e)
+        //{
+        //    Items items = new Items();
+        //    items.Show();
+        //    this.Close();
+        //}
     }
 }

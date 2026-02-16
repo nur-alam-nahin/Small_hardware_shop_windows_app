@@ -78,9 +78,11 @@
             // 
             // txt_password
             // 
+            this.txt_password.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_password.Location = new System.Drawing.Point(496, 387);
             this.txt_password.Multiline = true;
             this.txt_password.Name = "txt_password";
+            this.txt_password.PasswordChar = '*';
             this.txt_password.Size = new System.Drawing.Size(342, 39);
             this.txt_password.TabIndex = 14;
             // 
@@ -96,6 +98,7 @@
             // 
             // txt_userName
             // 
+            this.txt_userName.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txt_userName.Location = new System.Drawing.Point(496, 280);
             this.txt_userName.Multiline = true;
             this.txt_userName.Name = "txt_userName";
